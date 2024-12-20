@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugtong Bugtong</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff6f61, #6a5acd, #00bcd4, #ffeb3b);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+      
+        #bugtong-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border: 3px solid #ff6f61;
+            transition: transform 0.3s ease;
+        }
+
+        #bugtong-container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        .bugtong-text {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        .result {
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: 600;
+            color: #ff5722;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        button {
+            padding: 15px 30px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #ff3d00;
+            transform: scale(1.1);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="bugtong-container">
+            <h1>Bugtong Bugtong</h1>
+            <p id="bugtong" class="bugtong-text">Press the button to get a bugtong (riddle).</p>
+            <div class="result" id="result"></div>
+            <button onclick="generateBugtong()">Next Bugtong</button>
+        </div>
+    </div>
+
+    <script>
+      
+        const bugtongList = [
+            {riddle: "May ulo, walang katawan, may katawan, walang ulo. Ano ito?", answer: "Bola"},
+            {riddle: "Ang hindi marunong lumingon sa pinagmulan ay hindi makararating sa paroroonan. Ano ito?", answer: "Ilog"},
+            {riddle: "Apat na sulok, walang pader. Ano ito?", answer: "Mesa"},
+            {riddle: "Hindi tao, hindi hayop, naglalakad, may kamay, may paa. Ano ito?", answer: "Manika"},
+            {riddle: "Isang daang mata, hindi makakita. Ano ito?", answer: "Salamin"},
+            {riddle: "Kung tawagin ay bahay, ang bubong ay hindi nabubuo. Ano ito?", answer: "Kabute"},
+            {riddle: "Hindi tao, hindi hayop, may katawan, may mga mata, laging tumatakbo. Ano ito?", answer: "Orasan"},
+            {riddle: "Isang malaking ilog, walang tubig. Ano ito?", answer: "Kalsada"},
+            {riddle: "May kamay, walang paa. Ano ito?", answer: "Relos"},
+            {riddle: "Kahit walang mga mata, nakakakita pa rin. Ano ito?", answer: "Salamin"},
+            {riddle: "Mahal ko, minsan galit ko. Ano ito?", answer: "Gutom"},
+            {riddle: "Bilog na, malambot, at may balat. Ano ito?", answer: "Kalimudan (or Cantaloupe)"},
+            {riddle: "May katawan na matigas, malambot naman sa loob. Ano ito?", answer: "Coconut (Niyog)"},
+            {riddle: "Isang hayop na may maraming mga leeg, ngunit walang ulo. Ano ito?", answer: "Abyssinian cat"}
+        ];
+
+        let currentBugtong = {};
+
+       
+        function generateBugtong() {
+            currentBugtong = bugtongList[Math.floor(Math.random() * bugtongList.length)];
+            document.getElementById("bugtong").textContent = currentBugtong.riddle;
+            document.getElementById("result").textContent = currentBugtong.answer;
+        }
+
+        generateBugtong();
+    </script>
+
+</body>
+</html>
